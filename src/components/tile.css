@@ -1,7 +1,6 @@
 .tile {
   flex: 1 1 24%;
   aspect-ratio: 1;
-  background-color: red;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;

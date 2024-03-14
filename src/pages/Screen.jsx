@@ -9,20 +9,33 @@ function Screen() {
   const [score, setScore] = useState({ score: 0 });
   const [highestScore, setHighestScore] = useState(0);
   const [randomColor, setRandomColor] = useState(null);
+  const [isSingle, setIsSingle] = useState(false);
 
   function getRandomTile(length) {
     const num = Math.floor(Math.random() * length);
     const opacity = (70 + score.score) / 105.8;
-    console.log(opacity);
 
-    const color = [
-      Math.floor(Math.random() * 255 + 1),
-      Math.floor(Math.random() * 255 + 1),
-      Math.floor(Math.random() * 255 + 1),
-      opacity,
-    ];
+    let color;
+    if (isSingle) {
+      color = [202, 19, 74, opacity];
+    } else {
+      color = [
+        Math.floor(Math.random() * 255 + 1),
+        Math.floor(Math.random() * 255 + 1),
+        Math.floor(Math.random() * 255 + 1),
+        opacity,
+      ];
+    }
     setRandomTile(num);
-    setRandomColor(color);
+
+    if (isSingle) {
+      setRandomColor([221, 221, 221, 1]);
+      setTimeout(() => {
+        setRandomColor(color);
+      }, 500);
+    } else {
+      setRandomColor(color);
+    }
   }
 
   function getAnswer(isTarget) {
@@ -39,6 +52,11 @@ function Screen() {
   useEffect(() => {
     getRandomTile(tiles.length);
   }, [score]);
+
+  useEffect(() => {
+    getRandomTile(tiles.length);
+    setScore({ score: 0 });
+  }, [isSingle]);
 
   return (
     <>
@@ -84,6 +102,20 @@ function Screen() {
             <div>Opacity: {((1 - randomColor[3]) * 100).toFixed(2)}%</div>
           </>
         )}
+      </div>
+      <div className="btns">
+        <button
+          onClick={() => setIsSingle(false)}
+          className={`btn ${!isSingle && "btn--active"}`}
+        >
+          Multiple
+        </button>
+        <button
+          onClick={() => setIsSingle(true)}
+          className={`btn ${isSingle && "btn--active"}`}
+        >
+          Single
+        </button>
       </div>
     </>
   );
