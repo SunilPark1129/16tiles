@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Tile from "../components/Tile";
 
 const tiles = new Array(16).fill(false);
+// let timer;
 
 function Screen() {
   const [randomTile, setRandomTile] = useState(null);
@@ -10,12 +11,14 @@ function Screen() {
   const [highestScore, setHighestScore] = useState(0);
   const [randomColor, setRandomColor] = useState(null);
   const [isSingle, setIsSingle] = useState(false);
+  const [timer, setTimer] = useState(null);
 
   function getRandomTile(length) {
     const num = Math.floor(Math.random() * length);
     const opacity = (70 + score.score) / 105.8;
 
     let color;
+
     if (isSingle) {
       color = [202, 19, 74, opacity];
     } else {
@@ -27,12 +30,15 @@ function Screen() {
       ];
     }
     setRandomTile(num);
+    clearTimeout(timer);
 
     if (isSingle) {
       setRandomColor([221, 221, 221, 1]);
-      setTimeout(() => {
-        setRandomColor(color);
-      }, 500);
+      setTimer(
+        setTimeout(() => {
+          setRandomColor(color);
+        }, 300)
+      );
     } else {
       setRandomColor(color);
     }
