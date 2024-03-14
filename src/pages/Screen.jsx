@@ -72,7 +72,7 @@ function Screen() {
         {randomColor && (
           <>
             <div
-              className={`score ${
+              className={`${
                 highestScore !== 0 &&
                 highestScore <= score.score &&
                 "score--highestscore"
