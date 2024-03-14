@@ -1,0 +1,16 @@
+.screen {
+  width: 100%;
+  max-width: 20rem;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  gap: 4px;
+}
+
+.score--highestscore span {
+  color: red;
+  font-weight: bold;
+}/*# sourceMappingURL=screen.css.map */
