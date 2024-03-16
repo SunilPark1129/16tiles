@@ -1,0 +1,12 @@
+.board {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  max-width: 20rem;
+  width: 100%;
+}
+
+.board--highestscore span {
+  color: red;
+  font-weight: bold;
+}

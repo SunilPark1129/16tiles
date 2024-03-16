@@ -1,9 +1,9 @@
-import Screen from "./pages/Screen";
+import Main from "./pages/main/Main";
 
 function App() {
   return (
     <div className="App">
-      <Screen />
+      <Main />
     </div>
   );
 }
