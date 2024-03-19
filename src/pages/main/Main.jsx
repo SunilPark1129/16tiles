@@ -21,15 +21,16 @@ function Main() {
 
     // set colors
     if (isSingleMode) {
-      color = [202, 19, 74, opacity];
+      color = [250, 149, 144, opacity];
     } else {
       color = [
-        Math.floor(Math.random() * 250 + 1),
-        Math.floor(Math.random() * 180 + 1),
-        Math.floor(Math.random() * 250 + 1),
+        Math.floor(Math.random() * (250 - 150) + 150),
+        Math.floor(Math.random() * (220 - 150) + 150),
+        Math.floor(Math.random() * (250 - 150) + 150),
         opacity,
       ];
     }
+    console.log(color);
     setTargetedTile(num);
     clearTimeout(timer);
 

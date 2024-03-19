@@ -13,7 +13,7 @@ function Board({ score, tileColor }) {
               "board--highestscore"
             }`}
           >
-            Score: <span>{score.current}</span>
+            Level: <span>{score.current}</span>
           </div>
           <div>Record: {score.highest}</div>
           <div>Opacity: {((1 - tileColor[3]) * 100).toFixed(2)}%</div>
